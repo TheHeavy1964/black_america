@@ -1,0 +1,20 @@
+# Dependencies
+dashboard/node_modules/
+
+# Next.js build output
+dashboard/.next/
+dashboard/out/
+
+# Environment files
+dashboard/.env*
+
+# Production build folder
+dashboard/build/
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
