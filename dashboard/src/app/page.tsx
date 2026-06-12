@@ -54,7 +54,20 @@ export default function DashboardPage() {
   const [showIntro, setShowIntro] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
 
+  // Skip intro if already seen in the current browser session
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const hasSeen = sessionStorage.getItem("hasSeenIntro");
+      if (hasSeen === "true") {
+        setShowIntro(false);
+      }
+    }
+  }, []);
+
   const handleIntroEnd = useCallback(() => {
+    if (typeof window !== "undefined") {
+      sessionStorage.setItem("hasSeenIntro", "true");
+    }
     setFadeOut(true);
     setTimeout(() => {
       setShowIntro(false);
